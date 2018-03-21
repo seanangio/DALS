@@ -1,0 +1,34 @@
+---
+title: "Plots to Avoid Exercises"
+author: "Sean Angiolillo"
+date: "3/21/2018"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+
+
+## Plots to Avoid Exercises #1
+
+When is it appropriate to use pie charts or donut charts?
+
+* When you are hungry.
+
+* To compare percentages.
+
+* To compare values that add up to 100%.
+
+* **Never.**
+
+## Plots to Avoid Exercises #2
+
+The use of pseudo-3D plots in the literature mostly adds:
+
+* Pizzazz.
+
+* The ability to see three dimensional data.
+
+* Ability to discover.
+
+* **Confusion.**

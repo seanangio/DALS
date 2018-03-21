@@ -1,0 +1,66 @@
+---
+title: "Boxplot Exercises"
+author: "Sean Angiolillo"
+date: "3/21/2018"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The `InsectSprays` data set measures the counts of insects in agricultural experimental units treated with different insecticides. This dataset is included in R, and you can examine it by typing:
+
+```{r}
+head(InsectSprays)
+```
+
+## Boxplot Exercises #1
+
+Which spray seems the most effective (has the lowest median)?
+
+```{r message=FALSE}
+library(dplyr)
+library(ggplot2)
+ggplot(InsectSprays, aes(x = spray, y = count)) + geom_boxplot()
+
+InsectSprays %>%
+    group_by(spray) %>%
+    summarize(n = n(), med_count = median(count)) %>%
+    arrange(med_count)
+```
+
+* A
+
+* B
+
+* **C**
+
+* D
+
+* E
+
+## Boxplot Exercises #2
+
+Let's consider a random sample of finishers from the New York City Marathon in 2002. This dataset can be found in the UsingR package. Load the library and then load the `nym.2002` dataset.
+
+Use boxplots and histograms to compare the finishing times of males and females. Which of the following best describes the difference?
+
+The boxplot and density plot do a good job of showing how the male and female distributions have a similar shape (slightly right skewed) with the male center shifted to the left (faster times). The histogram reminds us of the much greater number of male finishers.
+
+```{r}
+data(nym.2002, package = "UsingR")
+ggplot(nym.2002, aes(x = gender, y = time)) + geom_boxplot() + coord_flip()
+ggplot(nym.2002, aes(x = time)) + geom_histogram() + facet_wrap(~ gender)
+ggplot(nym.2002, aes(x = time, fill = gender)) + geom_density(alpha = 0.5)
+```
+
+* Males and females have the same distribution.
+
+* Most males are faster than most women.
+
+* **Male and females have similar right skewed distributions with the former, 20 minutes shifted to the left.**
+
+* Both distribution are normally distributed with a difference in mean of about 30 minutes.
